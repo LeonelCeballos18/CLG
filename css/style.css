@@ -77,12 +77,15 @@
   }
 
   .libro{
-    width: 75%;
+    width: 55%;
     background: #FFFF;
     text-align: justify;
     padding: 10px 15px 10px 15px;
     font-family: sans-serif !important;
     margin: auto;
+    box-shadow: -1px 4px 17px -5px rgba(0,0,0,0.52);
+    -webkit-box-shadow: -1px 4px 17px -5px rgba(0,0,0,0.52);
+    -moz-box-shadow: -1px 4px 17px -5px rgba(0,0,0,0.52);
   }
 
   .portada{
@@ -105,7 +108,9 @@
     left: 0;
     top: 0;
     right: 0;
-    
+    box-shadow: -1px 4px 17px -5px rgba(0,0,0,0.52);
+    -webkit-box-shadow: -1px 4px 17px -5px rgba(0,0,0,0.52);
+    -moz-box-shadow: -1px 4px 17px -5px rgba(0,0,0,0.52);
   }
 
   .progress-bar{
@@ -119,4 +124,28 @@
     width: 100%;
     height: 100%;
     background-image: linear-gradient(to right, #9B579F, #C48445);
+  }
+
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding-top: 10px;
+  }
+
+  .size-conf{
+    color: white;
+    display: inline-block;
+    transform:translateY(2px);
+    border-radius: 5px;
+  }
+
+  .size-conf:hover{
+    background: #5A5A5A;
+  }
+
+  input{
+    width: 40px;
+    border-radius: 5px;
+    text-align: center;
   }
