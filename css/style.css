@@ -88,6 +88,14 @@
     -moz-box-shadow: -1px 4px 17px -5px rgba(0,0,0,0.52);
   }
 
+  p{
+    font-size: 12px;
+  }
+
+  h1{
+    font-size: 33px;
+  }
+
   .portada{
     width: auto;
     height: auto;
@@ -147,5 +155,5 @@
   input{
     width: 40px;
     border-radius: 5px;
-    text-align: center;
+    text-align: centerg;
   }
