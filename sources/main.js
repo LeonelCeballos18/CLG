@@ -115,6 +115,8 @@ let sessionTime = () =>{
     return `Session was started at ${currentTime} and ended at ${EndTime}`
 }
 
+//Botonera
+
 let pSize = 12;
 let hSize = 33;
 
@@ -123,6 +125,7 @@ btnAumentar.addEventListener('click', ()=>{
     pSize+=2;
     hSize+=2;
     console.log(pSize);
+    textSize.value = pSize;
     document.getElementsByTagName('p').style.fontSize = pSize;
     document.getElementsByTagName('h1').style.fontSize = hSize;
 })
@@ -132,11 +135,12 @@ btnReducir.addEventListener('click', ()=>{
     pSize-=2;
     hSize-=2;
     console.log(pSize);
+    textSize.value = pSize;
     document.getElementsByTagName('p').style.fontSize = pSize;
     document.getElementsByTagName('h1').style.fontSize = hSize;
 })
 
-var textSize = document.getElementById("size");
+var textSize = document.querySelector('.size');
 textSize.addEventListener('keypress', (event)=>{
     if (event.key === "Enter"){
         pSize = textSize.value;
