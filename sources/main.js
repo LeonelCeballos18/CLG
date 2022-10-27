@@ -135,3 +135,14 @@ btnReducir.addEventListener('click', ()=>{
     document.getElementsByTagName('p').style.fontSize = pSize;
     document.getElementsByTagName('h1').style.fontSize = hSize;
 })
+
+var textSize = document.getElementById("size");
+textSize.addEventListener('keypress', (event)=>{
+    if (event.key === "Enter"){
+        pSize = textSize.value;
+        hSize = textSize.value + 21;
+        console.log(hSize);
+        document.getElementsByTagName('p').style.fontSize = pSize;
+        document.getElementsByTagName('h1').style.fontSize = hSize;
+    }
+})
