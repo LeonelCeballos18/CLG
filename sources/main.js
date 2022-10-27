@@ -114,39 +114,3 @@ let clearAll = () =>{
 let sessionTime = () =>{
     return `Session was started at ${currentTime} and ended at ${EndTime}`
 }
-
-//Botonera
-
-let pSize = 12;
-let hSize = 33;
-
-const btnAumentar = document.querySelector('.add');
-btnAumentar.addEventListener('click', ()=>{
-    pSize+=2;
-    hSize+=2;
-    console.log(pSize);
-    textSize.value = pSize;
-    document.getElementsByTagName('p').style.fontSize = pSize;
-    document.getElementsByTagName('h1').style.fontSize = hSize;
-})
-
-const btnReducir = document.querySelector('.remove');
-btnReducir.addEventListener('click', ()=>{
-    pSize-=2;
-    hSize-=2;
-    console.log(pSize);
-    textSize.value = pSize;
-    document.getElementsByTagName('p').style.fontSize = pSize;
-    document.getElementsByTagName('h1').style.fontSize = hSize;
-})
-
-var textSize = document.querySelector('.size');
-textSize.addEventListener('keypress', (event)=>{
-    if (event.key === "Enter"){
-        pSize = textSize.value;
-        hSize = textSize.value + 21;
-        console.log(hSize);
-        document.getElementsByTagName('p').style.fontSize = pSize;
-        document.getElementsByTagName('h1').style.fontSize = hSize;
-    }
-})
