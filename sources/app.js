@@ -17,28 +17,34 @@ const btnAumentar = document.querySelector('.add');
 btnAumentar.addEventListener('click', ()=>{
     pSize+=2;
     hSize+=2;
-    console.log(pSize);
-    document.querySelector('#size').value = pSize
-    document.getElementsByTagName('p').style.fontsize = pSize;
-    document.getElementsByTagName('h1').style.fontSize = hSize;
+    if(pSize<48){
+        console.log(pSize);
+        document.querySelector('#size').value = pSize;
+        document.getElementsByTagName('p').style.fontSize = pSize;
+        document.getElementsByTagName('h1').style.fontSize = hSize;
+    }
 })
 
 const btnReducir = document.querySelector('.remove');
 btnReducir.addEventListener('click', ()=>{
     pSize-=2;
     hSize-=2;
-    console.log(pSize);
-    document.querySelector('#size').value = pSize
-    document.getElementsByTagName('p').style.fontSize = pSize;
-    document.getElementsByTagName('h1').style.fontSize = hSize;
+    if(pSize>0){
+        console.log(pSize);
+        document.querySelector('#size').value = pSize;
+        document.getElementsByTagName('p').style.fontSize = pSize;
+        document.getElementsByTagName('h1').style.fontSize = hSize;
+    }
 })
 
 textSize.addEventListener('keypress', (event)=>{
     if (event.key === "Enter"){
-        pSize = textSize.value;
-        hSize = textSize.value + 21;
-        console.log(hSize);
-        document.getElementsByTagName('p').style.fontSize = pSize;
-        document.getElementsByTagName('h1').style.fontSize = hSize;
+        if(textSize.value > 2 || textSize.value < 48){
+            pSize = textSize.value;
+            hSize = textSize.value + 21;
+            console.log(hSize);
+            document.getElementsByTagName('p').style.fontSize = pSize;
+            document.getElementsByTagName('h1').style.fontSize = hSize;
+        }
     }
 })
