@@ -11,7 +11,7 @@ update()
 
 let pSize = 12;
 let hSize = 33;
-var textSize = document.querySelector('.size');
+var textSize = document.getElementById('size');
 
 const btnAumentar = document.querySelector('.add');
 btnAumentar.addEventListener('click', ()=>{
@@ -20,8 +20,14 @@ btnAumentar.addEventListener('click', ()=>{
     if(pSize<48){
         console.log(pSize);
         document.querySelector('#size').value = pSize;
-        document.getElementsByTagName('p').style.fontSize = pSize;
-        document.getElementsByTagName('h1').style.fontSize = hSize;
+        let tagP = document.getElementsByTagName('p')
+        let tagH = document.getElementsByTagName('h1')
+        for(let i=0; i>tagP.length; i++){
+            document.getElementsByTagName('p')[i].style.fontSize = pSize;
+        }
+        for(let i=0; i>tagH.length; i++){
+            document.getElementsByTagName('h1')[i].style.fontSize = hSize;
+        }
     }
 })
 
