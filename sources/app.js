@@ -9,9 +9,12 @@ update()
 
 //Botonera
 
-let pSize = 12;
+function botonera(){
+    let pSize = 12;
 let hSize = 33;
 var textSize = document.getElementById('size');
+let tagP = document.getElementsByTagName('p');
+let tagH = document.getElementsByTagName('h1');
 
 const btnAumentar = document.querySelector('.add');
 btnAumentar.addEventListener('click', ()=>{
@@ -20,13 +23,11 @@ btnAumentar.addEventListener('click', ()=>{
     if(pSize<48){
         console.log(pSize);
         document.querySelector('#size').value = pSize;
-        let tagP = document.getElementsByTagName('p')
-        let tagH = document.getElementsByTagName('h1')
-        for(let i=0; i>tagP.length; i++){
+        for(let i=0; i<tagP.length; i++){
             document.getElementsByTagName('p')[i].style.fontSize = pSize;
         }
-        for(let i=0; i>tagH.length; i++){
-            document.getElementsByTagName('h1')[i].style.fontSize = hSize;
+        for(let x=0; x<tagH.length; x++){
+            document.getElementsByTagName('h1')[x].style.fontSize = hSize;
         }
     }
 })
@@ -38,19 +39,30 @@ btnReducir.addEventListener('click', ()=>{
     if(pSize>0){
         console.log(pSize);
         document.querySelector('#size').value = pSize;
-        document.getElementsByTagName('p').style.fontSize = pSize;
-        document.getElementsByTagName('h1').style.fontSize = hSize;
+        for(let i=0; i<tagP.length; i++){
+            document.getElementsByTagName('p')[i].style.fontSize = pSize;
+        }
+        for(let x=0; x<tagH.length; x++){
+            document.getElementsByTagName('h1')[x].style.fontSize = hSize;
+        }
     }
 })
 
 textSize.addEventListener('keypress', (event)=>{
     if (event.key === "Enter"){
-        if(textSize.value > 2 || textSize.value < 48){
-            pSize = textSize.value;
-            hSize = textSize.value + 21;
+        if(textSize.valueAsNumber > 2 || textSize.valueAsNumber < 48){
+            pSize = textSize.valueAsNumber;
+            hSize = textSize.valueAsNumber + 21;
             console.log(hSize);
-            document.getElementsByTagName('p').style.fontSize = pSize;
-            document.getElementsByTagName('h1').style.fontSize = hSize;
+            for(let i=0; i<tagP.length; i++){
+                document.getElementsByTagName('p')[i].style.fontSize = pSize;
+            }
+            for(let x=0; x<tagH.length; x++){
+                document.getElementsByTagName('h1')[x].style.fontSize = hSize;
+            }
         }
     }
 })
+}
+
+botonera();
