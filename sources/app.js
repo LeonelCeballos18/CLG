@@ -23,6 +23,8 @@ btnAumentar.addEventListener('click', ()=>{
     if(pSize<48){
         console.log(pSize);
         document.querySelector('#size').value = pSize;
+        var texto = document.querySelector(".texto");
+        texto.style.fontSize = pSize + 'px';
         for(let i=0; i<tagP.length; i++){
             document.getElementsByTagName('p')[i].style.fontSize = pSize;
         }
@@ -39,6 +41,7 @@ btnReducir.addEventListener('click', ()=>{
     if(pSize>0){
         console.log(pSize);
         document.querySelector('#size').value = pSize;
+        document.querySelector(".texto").style.fontSize = pSize;
         for(let i=0; i<tagP.length; i++){
             document.getElementsByTagName('p')[i].style.fontSize = pSize;
         }
