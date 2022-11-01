@@ -1,116 +1,122 @@
-const descForm = document.querySelector('.desc-form')
-const myBtns = document.querySelector('.my-btns');
-const errorMessage = document.querySelector('.error')
-const remTime = document.querySelector('.remTime');
-const notice = document.querySelector('.noticeBoard')
-const div = document.querySelector('.main-container');
-
-const completed = document.querySelector('.completed-list')
-
-let workDuration = descForm.workTime.value;
-let breakDuration = descForm.breakTime.value;
-let shortDesc = descForm.shortDesc.value;
-let timeRatio_of_progress = ((workDuration * 60)/100) * 1000;
-
-descForm.workTime.addEventListener('keyup',e=>{
-    errorMessage.classList.add('d-none')
-    workDuration = e.target.value;
-    workMinutes = workDuration - 1;
-    timeRatio_of_progress = ((workDuration * 60)/100) * 1000;
+window.onload = () => {
+    //Variables timer
+    let currentTime;    //Minutos seteados
+    let seconds = 0;
    
-})
-descForm.breakTime.addEventListener('keyup',e=>{  
-    errorMessage.classList.add('d-none')
-    breakDuration = e.target.value;
-    breakMinutes = breakDuration - 1;
-
-})
-descForm.shortDesc.addEventListener('keyup',e=>{
-    errorMessage.classList.add('d-none')
-    shortDesc = e.target.value;    
-})
-
-//Variables
-let workMinutes  = workDuration -1;
-let breakMinutes = breakDuration -1;
-let timer1 = undefined
-let timer2 = undefined
-let breakcount = 0;
-let seconds = 60;
-let currentTime = undefined;
-let EndTime = undefined;
-let width = 0;
-
-myBtns.addEventListener('click',(e)=>{
-    if(e.target.classList.contains('start')){
-        for(let i=shortDesc; i>0; i--){
-            myIntervals();
-            disabling();
-            console.log(1)
-            const checkCurrtime = new Date();
-            currentTime = checkCurrtime.toLocaleTimeString();
+   
+    //Variables pomodoro
+   let workTime;       //Tiempo de trabajo
+   let breakTime;      //Tiempo de descanso
+   let timesCompleted=0  //Ciclos de 25+5 completados
+   let cyclesGoal;     //Ciclos ingresados por el usuario
+   let cyclesCompleted=0;  //Ciclos completados
+   
+   //Conexiones con el frontend
+   
+   let clock=document.getElementById("clock");
+   let clockTitle=document.getElementById("clockTitle");
+   let cyclesInput=document.getElementById("cycles-input");
+   const startButton=document.getElementById("start-button");
+   let workTimeInput=document.getElementById("work-time");
+   let breakTimeInput=document.getElementById("break-time");
+   const div = document.querySelector('.pomodoro-container');
+   
+   //funcion de actualizar variables
+   function populateVariables() {
+       console.log("populate Variables")
+       workTime=workTimeInput.value;   //Minutos
+       breakTime=breakTimeInput.value; //Descanso
+       cyclesGoal=cyclesInput.value;   //Ciclos
+       timesCompleted=0                //Ciclos completados
+       }
+   
+       //Funcion para imprimir los numeros en el reloj
+   function updateClock() {
+       clockMinutes=formatNumbers(currentTime);
+       clockSeconds=formatNumbers(seconds);
+       clock.innerHTML=clockMinutes+":"+clockSeconds;
+       }
+       
+   //Boton start
+   startButton.onclick=()=>{
+       populateVariables();
+       startPomodoro();
+       }
+   
+   function startPomodoro() {
+       console.log("pomodoro empezado");
+       startButton.disabled = true;
+       pomodoroController();
+   }
+   
+   //Funcion para la pausa larga(final)
+   function finish() {
+       if(timesCompleted/2==cyclesGoal){
+           return true
+       } else{
+           return false
+       }
+   }
+   
+   //Funcion para definir trabajo o descanso o terminado
+   let terminado=false;
+   function pomodoroController() {
+       if (finish()==true) {
+               timesCompleted=0;
+               terminado=true
+               startButton.disabled = false;
+               restartClock();
+               return
+       } else {
+       if (timesCompleted%2==0) {                    //Los procesos pares son siempre los de trabajo
+           div.classList.toggle('trabajo');
+           currentTime=workTime;
+           timesCompleted++;
+           timer();
+           console.log("Tiempo de trabajo" +timesCompleted + "ciclos" +cyclesCompleted)
+       } else {                        //Si no es par, significa que sigue descanso o en su caso, el descanso largo(final)
+           div.classList.toggle('descanso');
+           currentTime=breakTime;
+           timesCompleted++;
+           timer();
+           console.log("Tiempo de descanso" +timesCompleted + "ciclos" +cyclesCompleted)
+       }
+   }
+   }
+   
+   //Reinicia el reloj a 0
+   function restartClock() {
+    clock.innerHTML="00:00";
+    }
+   
+   //funcion de reloj 
+   function timer() {
+    if (terminado==true) {
+        return null
+    } else {
+        if (currentTime > 0 || seconds > 0) {
+            if (seconds == 0) {
+                seconds=59;
+                currentTime--;
+            } else {
+                seconds--;
+            }
+            updateClock();
+            console.log(currentTime, seconds);
+            setTimeout(timer, 1000);
+            
+        } else {
+            pomodoroController();
         }
     }
-    clearAll();
-})
-
-//fucntion, which is for showing the remaining time to user
-let timeReamaining = () =>{
-    seconds = seconds - 1;
-    if(seconds === 0){
-        workMinutes = workMinutes - 1;
-        if(workMinutes === -1){
-            div.classList.toggle('descanso');
-            if(breakcount % 2 === 0){
-                workMinutes = breakMinutes;
-                breakcount = breakcount + 1;    
-            }else{
-                width = 1;
-                workMinutes = workDuration - 1;
-                breakcount = breakcount + 1;
-                notice.innerText = ' ';
-
-        } 
     }
-        seconds = 59;
-    }
-//Here we are rendring the change in time on the timer screen       
-let html = `${workMinutes<10? `0${workMinutes}`:workMinutes}:${seconds<10? `0${seconds}`:seconds}`
-remTime.innerText = html;  
-}
-
-//fucntion to start time intervals
-let myIntervals = () =>{
-    timer1 = setInterval(timeReamaining,1000);
-}
-
-let disabling = () =>{
-   descForm.workTime.disabled = true
-   descForm.breakTime.disabled = true
-   descForm.shortDesc.disabled = true
-
-}
-let enabling = () =>{
-    descForm.workTime.disabled = false;
-    descForm.breakTime.disabled = false;
-    descForm.shortDesc.disabled = false;
-    descForm.reset();
-}
-
-//function to reset all values
-let clearAll = () =>{
-    enabling();
-    clearInterval(timer1)
-    workMinutes = workDuration - 1;
-    seconds = 60;
-    breakMinutes = breakDuration - 1;
-    remTime.textContent = `00:00`
-    notice.textContent = '';
-    width = 1
-
-}
-
-//fuction to show the starting and ending time 
-let sessionTime = () =>{
-    return `Session was started at ${currentTime} and ended at ${EndTime}`
+    
+    //Cambiar formato numeros dle reloj
+   function formatNumbers(time) {
+       if (time<10) {
+           return "0"+time;
+       } else {
+           return time
+       }
+   }
 }

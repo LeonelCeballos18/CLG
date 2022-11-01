@@ -1,66 +1,110 @@
-.body {
-    margin: 0px;
-    padding: 0px;
-  }
-  .main-container {
-    display: grid;
-    place-content: center;
-    margin: auto;
-    width: 30%;
-    max-width: 70%;
-    height: 300px;
-    background-color: #62DE28;
-    margin-top: 10px;
-    border-radius: 5px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  }
+body {
+  margin: 0px;
+  padding: 0px;
+}
 
-  .descanso{
-    background-color: #287DDE;
-  }
+.pomodoro-container {
+  display: grid;
+  place-content: center;
+  margin: auto;
+  width: 30%;
+  max-width: 70%;
+  height: 300px;
+  background-color: #62DE28;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+} 
 
-  .activo{
-    background-color: #62DE28;
-  }
+.row-container {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+}
 
-  .my-btns a{
-      border: 1px solid whitesmoke;
-      border-radius: 5px;
-      text-decoration: none;
-      color: whitesmoke;
-      display: grid;
-      place-content: center;
-      width: 150px;
-      background-color: transparent
-  }
-  .my-btns a:hover{
-      background-color:whitesmoke;
-      color: rgb(128, 128, 128);
-  }
-  
-  .progBar{
-      height: 20px;
-      width: 95%;
-  }
-  
-  input{
-      border:none;
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-      border-radius: 3px;
-      font-size: 0.9rem;
-      outline: none;
-  
-  }
-  
-  .workDur{
-      width: 140px;
-  }
-  .breakDur{
-      width: 140px;
-  }
-  .taskDesc{
-      width: 140px;
-  }
+.clock-container {
+  padding-top: 20px;
+  justify-content: center;
+}
+
+#clock {
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 70px;
+  color: #ffffff;
+}
+
+#clockTitle {
+  color: black; 
+  font-family: Helvetica, sans-serif;
+
+}
+
+.input-container{
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  text-align: center;
+}
+
+label {
+  text-transform: uppercase;
+  font-family: Helvetica, sans-serif;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+input {
+  color: white;
+  padding: 5px;
+  width: 80px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+}
+
+.start-container {
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+#start-button {
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  text-decoration: none;
+  color: whitesmoke;
+  display: grid;
+  place-content: center;
+  width: 100px;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 5px 5px 5px 5px;
+}
+
+#start-button:hover {
+  background-color:whitesmoke;
+  color: rgb(128, 128, 128);
+}
+
+.settings-container {
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+/*descanso*/
+
+.descanso{
+  background-color: #287DDE;
+}
+
+.trabajo{
+  background-color: #62DE28;
+}
   
   .item{
       height: 90px;
