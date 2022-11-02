@@ -64,12 +64,13 @@ window.onload = () => {
        if (finish()==true) {
                timesCompleted=0;
                terminado=true
-               startButton.disabled = false;
+               div.classList.remove('descanso');
+               startButton.enabled = true;
                restartClock();
                return
        } else {
        if (timesCompleted%2==0) {                    //Los procesos pares son siempre los de trabajo
-           div.classList.toggle('trabajo');
+           div.classList.remove('descanso');
            currentTime=workTime;
            timesCompleted++;
            timer();
