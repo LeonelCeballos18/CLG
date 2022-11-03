@@ -17,8 +17,8 @@ window.onload = () => {
    let clockTitle=document.getElementById("clockTitle");
    let cyclesInput=document.getElementById("cycles-input");
    const startButton=document.getElementById("start-button");
-   const aumentar1 = document.getElementById("aumentar1");
-   const aumentar5 = document.getElementById("aumentar5");
+   const aumentar1= document.getElementById("aumentar1");
+   const aumentar5= document.getElementById("aumentar5");
    let workTimeInput=document.getElementById("work-time");
    let breakTimeInput=document.getElementById("break-time");
    const div = document.querySelector('.pomodoro-container');
