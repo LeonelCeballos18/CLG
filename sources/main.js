@@ -17,6 +17,8 @@ window.onload = () => {
    let clockTitle=document.getElementById("clockTitle");
    let cyclesInput=document.getElementById("cycles-input");
    const startButton=document.getElementById("start-button");
+   const aumentar1 = document.getElementById("aumentar1");
+   const aumentar5 = document.getElementById("aumentar5");
    let workTimeInput=document.getElementById("work-time");
    let breakTimeInput=document.getElementById("break-time");
    const div = document.querySelector('.pomodoro-container');
@@ -64,12 +66,13 @@ window.onload = () => {
        if (finish()==true) {
                timesCompleted=0;
                terminado=true
-               startButton.disabled = false;
+               div.classList.remove('descanso');
+               startButton.enabled = true;
                restartClock();
                return
        } else {
        if (timesCompleted%2==0) {                    //Los procesos pares son siempre los de trabajo
-           div.classList.toggle('trabajo');
+           div.classList.remove('descanso');
            currentTime=workTime;
            timesCompleted++;
            timer();

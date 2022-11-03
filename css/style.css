@@ -4,12 +4,12 @@ body {
 }
 
 .pomodoro-container {
-  display: grid;
+  display: flex;
   place-content: center;
   margin: auto;
-  width: 30%;
+  width: 100%;
   max-width: 70%;
-  height: 300px;
+  height: 200px;
   background-color: #62DE28;
   margin-top: 10px;
   border-radius: 5px;
@@ -68,8 +68,23 @@ input {
 }
 
 .start-container {
-  justify-content: center;
+  position: absolute;
   padding-bottom: 10px;
+  padding-top: 130px;
+}
+
+.btnAumentar{
+  margin-left: 10px;
+  background-color: transparent;
+  font-size: 20px;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+}
+
+.btnAumentar:hover {
+  background-color:whitesmoke;
+  color: rgb(128, 128, 128);
 }
 
 #start-button {
