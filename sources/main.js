@@ -17,8 +17,8 @@ window.onload = () => {
    let clockTitle=document.getElementById("clockTitle");
    let cyclesInput=document.getElementById("cycles-input");
    const startButton=document.getElementById("start-button");
-   const aumentar1= document.getElementById("aumentar1");
-   const aumentar5= document.getElementById("aumentar5");
+   const aumentar1 = document.getElementById("aumentar1");
+   const aumentar5 = document.getElementById("aumentar5");
    let workTimeInput=document.getElementById("work-time");
    let breakTimeInput=document.getElementById("break-time");
    const div = document.querySelector('.pomodoro-container');
@@ -73,6 +73,16 @@ window.onload = () => {
        } else {
        if (timesCompleted%2==0) {                    //Los procesos pares son siempre los de trabajo
            div.classList.remove('descanso');
+           aumentar1.disabled = false;
+           aumentar5.disabled = false;
+           aumentar1.onclick=()=>{
+            currentTime+=1;
+            console.log(3);
+           }
+           aumentar5.onclick=()=>{
+            currentTime+=5;
+            console.log(3);
+           }
            currentTime=workTime;
            timesCompleted++;
            timer();
@@ -80,6 +90,8 @@ window.onload = () => {
        } else {                        //Si no es par, significa que sigue descanso o en su caso, el descanso largo(final)
            div.classList.toggle('descanso');
            currentTime=breakTime;
+           aumentar1.disabled = true;
+           aumentar5.disabled = true;
            timesCompleted++;
            timer();
            console.log("Tiempo de descanso" +timesCompleted + "ciclos" +cyclesCompleted)
