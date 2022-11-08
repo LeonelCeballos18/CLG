@@ -64,6 +64,7 @@ window.onload = () => {
    let terminado=false;
    function pomodoroController() {
        if (finish()==true) {
+               location.reload();
                timesCompleted=0;
                terminado=true
                div.classList.remove('descanso');
@@ -134,4 +135,8 @@ window.onload = () => {
            return time
        }
    }
+
+   window.addEventListener("blur", () =>{
+    location.reload();
+   })
 }

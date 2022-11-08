@@ -71,7 +71,7 @@ input {
 .start-container {
   position: absolute;
   padding-bottom: 10px;
-  padding-top: 80px;
+  margin-top: 80px;
 }
 
 .btnAumentar{
@@ -81,7 +81,7 @@ input {
   color: whitesmoke;
   border: 1px solid whitesmoke;
   border-radius: 5px;
-  padding: 3px 3px 3px 12px;
+  padding: 3px 3px 3px 3px;
 }
 
 .btnAumentar:hover {
@@ -89,23 +89,6 @@ input {
   color: rgb(128, 128, 128);
 }
 
-.icon-aumentar1{
-  color: white;
-  position: absolute;
-  padding-left: -10px;
-  margin-left: 82.5px;
-  margin-bottom: 2px;
-  font-size: 10px;
-}
-
-.icon-aumentar2{
-  color: white;
-  position: absolute;
-  padding-left: -10px;
-  margin-left: 115.5px;
-  margin-bottom: 2px;
-  font-size: 10px;
-}
 #start-button {
   border: 1px solid whitesmoke;
   border-radius: 5px;
