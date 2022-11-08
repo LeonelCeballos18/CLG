@@ -38,7 +38,15 @@ window.onload = () => {
        clockSeconds=formatNumbers(seconds);
        clock.innerHTML=clockMinutes+":"+clockSeconds;
        }
-       
+
+    window.addEventListener('click', (e)=>{
+        if(document.getElementById('pomodoro-container').contains(e.target)){
+            console.log(3);
+        }else{
+            location.reload();
+        }
+    })
+
    //Boton start
    startButton.onclick=()=>{
        populateVariables();
