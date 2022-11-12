@@ -22,7 +22,14 @@ window.onload = () => {
    let workTimeInput=document.getElementById("work-time");
    let breakTimeInput=document.getElementById("break-time");
    const div = document.querySelector('.pomodoro-container');
+   const lbl = document.getElementById("labelAumentar");
+   const btn1 = document.getElementById("aumentar1");
+   const btn5 = document.getElementById("aumentar5");
    
+    lbl.classList.toggle('esconder');
+    btn1.classList.toggle('esconder');
+    btn5.classList.toggle('esconder');
+
    //funcion de actualizar variables
    function populateVariables() {
        console.log("populate Variables")
@@ -56,6 +63,9 @@ window.onload = () => {
    function startPomodoro() {
        console.log("pomodoro empezado");
        startButton.disabled = true;
+       lbl.classList.remove('esconder');
+       btn1.classList.remove('esconder');
+       btn5.classList.remove('esconder');
        pomodoroController();
    }
    
