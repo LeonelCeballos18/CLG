@@ -94,10 +94,11 @@ input {
   color: rgb(128, 128, 128);
 }
 
-#start-button {
+.start-button {
   border: 1px solid whitesmoke;
   border-radius: 5px;
   text-decoration: none;
+  margin-left: 5px;
   color: whitesmoke;
   display: grid;
   place-content: center;
@@ -107,7 +108,7 @@ input {
   padding: 3px 3px 3px 3px;
 }
 
-#start-button:hover {
+.start-button:hover {
   background-color:whitesmoke;
   color: rgb(128, 128, 128);
 }
