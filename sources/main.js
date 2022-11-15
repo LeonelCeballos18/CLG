@@ -21,6 +21,9 @@ window.onload = () => {
   const stopButton = document.getElementById("stop-button");
   const aumentar1 = document.getElementById("aumentar1");
   const aumentar5 = document.getElementById("aumentar5");
+  const tCycles = document.getElementById("cycles-tittle");
+  const tWork = document.getElementById("work-tittle");
+  const tBreak = document.getElementById("break-tittle");
   let workTimeInput = document.getElementById("work-time");
   let breakTimeInput = document.getElementById("break-time");
   const div = document.querySelector(".pomodoro-container");
@@ -33,6 +36,7 @@ window.onload = () => {
   btn5.classList.toggle("esconder");
   pauseButton.classList.toggle("esconder");
   stopButton.classList.toggle("esconder");
+  clock.classList.toggle("esconder");
 
   //funcion de actualizar variables
   function populateVariables() {
@@ -57,6 +61,13 @@ window.onload = () => {
     startButton.classList.toggle("esconder");
     pauseButton.classList.remove("esconder");
     stopButton.classList.remove("esconder");
+    clock.classList.remove("esconder");
+    workTimeInput.classList.toggle("esconder");
+    breakTimeInput.classList.toggle("esconder");
+    cyclesInput.classList.toggle("esconder");
+    tCycles.classList.toggle("esconder");
+    tWork.classList.toggle("esconder");
+    tBreak.classList.toggle("esconder");
   };
 
   pauseButton.onclick = () => {

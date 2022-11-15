@@ -22,8 +22,7 @@ body {
 
 .aumentar-container{
   position: absolute;
-  padding-top: 75px;
-  margin-left: 420px;
+  margin-bottom: 280px;
 }
 
 .clock-container {
@@ -36,6 +35,7 @@ body {
   text-align: center;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
+  margin-bottom: 55px;
   color: #ffffff;
 }
 
@@ -76,7 +76,7 @@ input {
 .start-container {
   position: absolute;
   padding-bottom: 10px;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 
 .btnAumentar{
@@ -99,6 +99,7 @@ input {
   border-radius: 5px;
   text-decoration: none;
   margin-left: 5px;
+  margin-bottom: 30px;
   color: whitesmoke;
   display: grid;
   place-content: center;
@@ -116,7 +117,7 @@ input {
 .settings-container {
   justify-content: space-around;
   padding-top: 0px;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
 }
 
 .esconder{
