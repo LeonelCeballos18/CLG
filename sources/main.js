@@ -57,6 +57,8 @@ window.onload = () => {
   //Boton start
   startButton.onclick = () => {
     populateVariables();
+    console.log(workTime, breakTime)
+    if(workTime>0 && breakTime >0){
     startPomodoro();
     startButton.classList.toggle("esconder");
     pauseButton.classList.remove("esconder");
@@ -68,6 +70,7 @@ window.onload = () => {
     tCycles.classList.toggle("esconder");
     tWork.classList.toggle("esconder");
     tBreak.classList.toggle("esconder");
+    }
   };
 
   pauseButton.onclick = () => {

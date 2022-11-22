@@ -45,7 +45,7 @@
     <script type="text/javascript" >
         function validNumericos(evt) {
             var charCode = (evt.which) ? evt.which : event.keyCode
-            if (charCode >= 48 && charCode <= 57) {
+            if (charCode >= 48 && charCode <= 57 || charCode == 8) {
                 return true;
             }
             else {
