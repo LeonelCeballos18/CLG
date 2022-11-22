@@ -19,15 +19,15 @@
         <div class="row-container settings-container">
             <div class="input-container">
                 <label for="cycles-input" id="cycles-tittle">Pomodoros</label>
-                <input id="cycles-input" type="text" value="1" required>
+                <input id="cycles-input" type="text" value="1" onkeydown="return validNumericos(event)" required>
             </div>
             <div class="input-container">
                 <label for="work-time" id="work-tittle">Trabajo</label>
-                <input id="work-time" type="text" value="25" required>
+                <input id="work-time" type="text" value="25" onkeydown="return validNumericos(event)" required>
             </div>
             <div class="input-container">
                 <label for="break-time" id="break-tittle">Descanso</label>
-                <input id="break-time" type="text" value="5" required>
+                <input id="break-time" type="text" value="5" onkeydown="return validNumericos(event)" required>
             </div>
         </div>
 
@@ -42,6 +42,17 @@
         </div>
 
     </div>
+    <script type="text/javascript" >
+        function validNumericos(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode >= 48 && charCode <= 57) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="sources/main.js"></script>

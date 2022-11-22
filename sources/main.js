@@ -73,8 +73,10 @@ window.onload = () => {
   pauseButton.onclick = () => {
     if (pausa == false) {
       pausa = true;
+      div.classList.toggle("pausa");
     } else {
       pausa = false;
+      div.classList.remove("pausa");
     }
     console.log(pausa);
   };
@@ -85,6 +87,7 @@ window.onload = () => {
 
   function startPomodoro() {
     console.log("pomodoro empezado");
+    div.classList.toggle("trabajo");
     startButton.disabled = true;
     lbl.classList.remove("esconder");
     btn1.classList.remove("esconder");
@@ -158,17 +161,17 @@ window.onload = () => {
       return null;
     } else {
       if (currentTime > 0 || seconds > 0) {
-        if(pausa == false){
-            if (seconds == 0) {
-                seconds = 59;
-                currentTime--;
-              } else {
-                seconds--;
-              }
-              updateClock();
-              console.log(currentTime, seconds);
-              
+        if (pausa == false) {
+          if (seconds == 0) {
+            seconds = 59;
+            currentTime--;
+          } else {
+            seconds--;
+          }
+          updateClock();
+          console.log(currentTime, seconds);
         }
+
         setTimeout(timer, 1000);
       } else {
         pomodoroController();
