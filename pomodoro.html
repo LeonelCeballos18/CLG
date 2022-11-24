@@ -19,20 +19,20 @@
         <div class="row-container settings-container">
             <div class="input-container">
                 <label for="cycles-input" id="cycles-tittle">Pomodoros</label>
-                <input id="cycles-input" type="text" value="1" onkeydown="return validNumericos(event)" required>
+                <input id="cycles-input" type="text" value="1" maxlength="2" onkeydown="return validNumericos(event)" required>
             </div>
             <div class="input-container">
-                <label for="work-time" id="work-tittle">Trabajo</label>
-                <input id="work-time" type="text" value="25" onkeydown="return validNumericos(event)" required>
+                <label for="work-time" id="work-tittle">Min.trabajo</label>
+                <input id="work-time" type="text" value="25" maxlength="4" onkeydown="return validNumericos(event)" required>
             </div>
             <div class="input-container">
-                <label for="break-time" id="break-tittle">Descanso</label>
-                <input id="break-time" type="text" value="5" onkeydown="return validNumericos(event)" required>
+                <label for="break-time" id="break-tittle">Min.descanso</label>
+                <input id="break-time" type="text" value="5" maxlength="4" onkeydown="return validNumericos(event)" required>
             </div>
         </div>
 
         <div class="row-container start-container">
-            <button id="start-button" class="start-button">Comenzar</button>
+            <button id="start-button" class="start-button">OK</button>
             <button id="pause-button" class="start-button">Pausar</button>
             <button id="stop-button" class="start-button">Parar</button>
         </div>
